@@ -1,7 +1,7 @@
 {
-  "name": "angular-quickstart",
+  "name": "ark-ui",
   "version": "1.0.0",
-  "description": "QuickStart package.json from the documentation, supplemented with testing support",
+  "description": "quickStart fro ark-ui package.json from the documentation, supplemented with testing support",
   "scripts": {
     "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
     "e2e": "tsc && concurrently \"http-server -s\" \"protractor protractor.config.js\" --kill-others --success first",
@@ -36,7 +36,7 @@
   "devDependencies": {
     "concurrently": "^3.1.0",
     "lite-server": "^2.2.2",
-    "typescript": "~2.0.10",
+    "typescript": "^2.0.10",
 
     "canonical-path": "0.0.2",
     "http-server": "^0.9.0",
@@ -51,8 +51,7 @@
     "protractor": "~4.0.14",
     "rimraf": "^2.5.4",
 
-    "@types/node": "^6.0.46",
-    "@types/jasmine": "^2.5.36"
+    "@types/node": "^6.0.46"
   },
   "repository": {}
 }
