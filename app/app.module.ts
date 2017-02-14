@@ -4,8 +4,7 @@ import { HttpModule } from '@angular/http';
 
 import './rxjs-extensions';
 import { AppComponent }  from './app.component';
-import { AppRoutingModule, routedComponents } from './app-routing.module';
-import { AboutComponent } from './dashboard/about.component';
+import { AppRoutingModule, routedComponents } from './app.routing.module';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 
@@ -19,8 +18,7 @@ import { SharedModule } from './shared/shared.module';
   ],
   declarations: [ 
     AppComponent,
-    routedComponents,
-    AboutComponent
+    routedComponents
  ],
   bootstrap:    [ AppComponent ]
 })

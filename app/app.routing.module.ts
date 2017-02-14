@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AboutComponent } from './dashboard/about.component';
+import { CustomersComponent } from './customers/customers.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
        path: 'about',
        component: AboutComponent
   },
+  {
+       path: 'customers',
+       component: CustomersComponent
+  }
 ];
 
 @NgModule({
@@ -27,4 +32,4 @@ const routes: Routes = [
 
 export class AppRoutingModule { }
 
-export const routedComponents = [DashboardComponent];
+export const routedComponents = [DashboardComponent, AboutComponent, CustomersComponent];
