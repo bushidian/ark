@@ -86,7 +86,7 @@ export class DataService  {
       }
   
       getStates(): Observable<IState[]> {
-        return this.http.get('/api/states')
+        return this.http.get( this.serverUrl + '/api/states')
                    .map((res: Response) => res.json())
                    .catch(this.handleError);
       }
