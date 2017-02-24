@@ -12,8 +12,8 @@ import { ICustomer, IOrder, IState, IPagedResults } from '../shared/interfaces';
 @Injectable()
 export class DataService  {
     
-      serverUrl: string = 'http://localhost:5005';
-      baseUrl: string = 'http://localhost:5005/api/customers';
+      serverUrl: string = 'http://localhost:5004';
+      baseUrl: string = 'http://localhost:5004/api/customers';
 
       constructor(private http: Http){
 
@@ -54,7 +54,7 @@ export class DataService  {
                    .map((res: Response) => {
                        const data = res.json();
                        console.log('insertCustomer status: ' + data.status);
-                       return data.customer;
+                       return data.data;
                    })
                    .catch(this.handleError);
       }
@@ -64,7 +64,7 @@ export class DataService  {
                    .map((res: Response) => {
                        const data = res.json();
                        console.log('updateCustomer status: ' + data.status);
-                       return data.customer;
+                       return data.data;
                    })
                    .catch(this.handleError);
       }

@@ -20,6 +20,7 @@ export class CustomerEditComponent implements OnInit {
     email: '',
     city: '',
     state: {
+        stateId: 0,
         abbreviation: '',
         name: ''
     },
