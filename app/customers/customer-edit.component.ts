@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
+import { ModalService, IModalContent } from '../core/modal/modal.service';
 import { DataService } from '../core/services/data.service';
 import { ICustomer, IState } from '../shared/interfaces';
 
@@ -31,10 +33,12 @@ export class CustomerEditComponent implements OnInit {
   errorMessage: string;
   deleteMessageEnabled: boolean;
   operationText: string = 'Insert';
+  @ViewChild('customerForm') customerForm: NgForm;
   
   constructor(private router: Router, 
               private route: ActivatedRoute, 
-              private dataService: DataService) { }
+              private dataService: DataService,
+              private modalService: ModalService) { }
 
   ngOnInit() {
     let id = this.route.snapshot.params['id'];
@@ -67,6 +71,8 @@ export class CustomerEditComponent implements OnInit {
         this.dataService.updateCustomer(this.customer)
           .subscribe((customer: ICustomer) => {
             if (customer) {
+              //Mark form as pristine so that CanDeactivateGuard won't prompt before navigation
+              this.customerForm.form.markAsPristine();
               this.router.navigate(['/customers']);
             } else {
               this.errorMessage = 'Unable to save customer';
@@ -79,6 +85,8 @@ export class CustomerEditComponent implements OnInit {
         this.dataService.insertCustomer(this.customer)
           .subscribe((customer: ICustomer) => {
             if (customer) {
+              //Mark form as pristine so that CanDeactivateGuard won't prompt before navigation
+              this.customerForm.form.markAsPristine();
               this.router.navigate(['/customers']);
             }
             else {
@@ -92,7 +100,7 @@ export class CustomerEditComponent implements OnInit {
   
   cancel(event: Event) {
     event.preventDefault();
-    this.router.navigate(['/']);
+    this.router.navigate(['/customers']);
   }
 
   delete(event: Event) {
@@ -107,6 +115,21 @@ export class CustomerEditComponent implements OnInit {
           }
         },
         (err) => console.log(err));
+  }
+
+  canDeactivate(): Promise<boolean> | boolean {
+    if (!this.customerForm.dirty) {
+      return true;
+    }
+
+    //Dirty show display modal dialog to user to confirm leaving
+    const modalContent: IModalContent = {
+      header: 'Lose Unsaved Changes?',
+      body: 'You have unsaved changes! Would you like to leave the page and lose them?',
+      cancelButtonText: 'Cancel',
+      OKButtonText: 'Leave'
+    }
+    return this.modalService.show(modalContent);
   }
 
 }

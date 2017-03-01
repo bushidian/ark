@@ -11,6 +11,8 @@ import { CustomersGridComponent } from './customers/customers-grid.component';
 import { CustomerEditComponent } from './customers/customer-edit.component';
 import { CustomerEditReactiveComponent } from './customers/customer-edit-reactive.component';
 
+import { CanDeactivateGuard } from './customers/can-deactivate.guard';
+
 const routes: Routes = [
   {
     path: '',
@@ -31,14 +33,16 @@ const routes: Routes = [
   },
   {
        path: 'customers/:id',
-       component: CustomerEditComponent
+       component: CustomerEditComponent,
+       canDeactivate: [ CanDeactivateGuard ]
   }
   
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [ CanDeactivateGuard ]
 })
 
 export class AppRoutingModule { }
