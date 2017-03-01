@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { ModalService, IModalContent } from '../core/modal/modal.service';
 import { DataService } from '../core/services/data.service';
 import { ICustomer, IState } from '../shared/interfaces';
+import { GrowlerService, GrowlerMessageType } from '../core/growler/growler.service';
 
 @Component({
   moduleId: module.id,
@@ -38,6 +39,7 @@ export class CustomerEditComponent implements OnInit {
   constructor(private router: Router, 
               private route: ActivatedRoute, 
               private dataService: DataService,
+              private growler: GrowlerService,
               private modalService: ModalService) { }
 
   ngOnInit() {
@@ -73,6 +75,7 @@ export class CustomerEditComponent implements OnInit {
             if (customer) {
               //Mark form as pristine so that CanDeactivateGuard won't prompt before navigation
               this.customerForm.form.markAsPristine();
+              this.growler.growl('Operation performed successfully.', GrowlerMessageType.Success);
               this.router.navigate(['/customers']);
             } else {
               this.errorMessage = 'Unable to save customer';
@@ -87,6 +90,7 @@ export class CustomerEditComponent implements OnInit {
             if (customer) {
               //Mark form as pristine so that CanDeactivateGuard won't prompt before navigation
               this.customerForm.form.markAsPristine();
+              this.growler.growl('Operation performed successfully.', GrowlerMessageType.Success);
               this.router.navigate(['/customers']);
             }
             else {

@@ -2,6 +2,7 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpModule, XSRFStrategy, CookieXSRFStrategy } from '@angular/http';
 
+import { GrowlerModule } from './growler/growler.module';
 import { ModalModule } from './modal/modal.module';
 
 import { NavbarComponent } from './navbar/navbar.component';
@@ -12,8 +13,8 @@ import { TrackByService } from './services/trackby.service';
 import { EnsureModuleLoadedOnceGuard } from '../shared/ensureModuleLoadedOnceGuard';
 
 @NgModule({
-  imports: [ HttpModule, RouterModule, ModalModule ],
-  exports: [ NavbarComponent, RouterModule, ModalModule ],
+  imports: [ HttpModule, RouterModule, GrowlerModule, ModalModule ],
+  exports: [ NavbarComponent, RouterModule, GrowlerModule, ModalModule ],
   declarations: [ NavbarComponent ],
   providers: [
     //Default XSRF provider setup (change cookie or header name if needed): 
