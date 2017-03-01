@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { DataFilterService } from '../core/data-filter.service';
-import { DataService } from '../core/data.service';
+import { DataFilterService } from '../core/services/data-filter.service';
+import { DataService } from '../core/services/data.service';
 import { ICustomer, IPagedResults } from '../shared/interfaces';
 
 @Component({ 

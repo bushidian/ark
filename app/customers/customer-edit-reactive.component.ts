@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { DataService } from '../core/data.service';
+import { DataService } from '../core/services/data.service';
 import { ICustomer, IState } from '../shared/interfaces';
 import { ValidationService } from '../shared/validation.service';
 

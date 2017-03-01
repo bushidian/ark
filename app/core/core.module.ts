@@ -2,16 +2,18 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpModule, XSRFStrategy, CookieXSRFStrategy } from '@angular/http';
 
+import { ModalModule } from './modal/modal.module';
+
 import { NavbarComponent } from './navbar/navbar.component';
-import { DataService } from './data.service';
-import { DataFilterService } from './data-filter.service';
+import { DataService } from './services/data.service';
+import { DataFilterService } from './services/data-filter.service';
 import { Sorter } from './sorter';
-import { TrackByService } from './trackby.service';
+import { TrackByService } from './services/trackby.service';
 import { EnsureModuleLoadedOnceGuard } from '../shared/ensureModuleLoadedOnceGuard';
 
 @NgModule({
-  imports: [ HttpModule, RouterModule ],
-  exports: [ NavbarComponent, RouterModule ],
+  imports: [ HttpModule, RouterModule, ModalModule ],
+  exports: [ NavbarComponent, RouterModule, ModalModule ],
   declarations: [ NavbarComponent ],
   providers: [
     //Default XSRF provider setup (change cookie or header name if needed): 

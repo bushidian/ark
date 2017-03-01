@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { ICustomer } from '../shared/interfaces';
+import { ICustomer } from '../../shared/interfaces';
 
 @Injectable()
 export class TrackByService {

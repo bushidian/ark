@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { propertyResolver } from '../shared/property-resolver';
+import { propertyResolver } from '../../shared/property-resolver';
 
 @Injectable()
 export class DataFilterService {
