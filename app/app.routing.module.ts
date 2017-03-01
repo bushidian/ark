@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules, NoPreloading } from '@angular/router';
+
+import { PreloadModulesStrategy } from './core/strategies/preload-modules.strategy';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AboutComponent } from './dashboard/about.component';
@@ -35,7 +37,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule]
 })
 
