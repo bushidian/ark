@@ -8,7 +8,7 @@ import { ModalModule } from './modal/modal.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DataService } from './services/data.service';
 import { DataFilterService } from './services/data-filter.service';
-import { Sorter } from './sorter';
+import { SorterService } from './services/sorter.service';
 import { TrackByService } from './services/trackby.service';
 import { EnsureModuleLoadedOnceGuard } from '../shared/ensureModuleLoadedOnceGuard';
 
@@ -19,7 +19,7 @@ import { EnsureModuleLoadedOnceGuard } from '../shared/ensureModuleLoadedOnceGua
   providers: [
     //Default XSRF provider setup (change cookie or header name if needed): 
     //{ provide: XSRFStrategy, useValue: new CookieXSRFStrategy('XSRF-TOKEN', 'X-XSRF-TOKEN') },
-    DataService, DataFilterService, Sorter, TrackByService
+    DataService, DataFilterService, SorterService, TrackByService
   ] // these should be singleton
 
 })
