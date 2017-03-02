@@ -11,6 +11,8 @@ import { DataFilterService } from './services/data-filter.service';
 import { SorterService } from './services/sorter.service';
 import { TrackByService } from './services/trackby.service';
 import { EnsureModuleLoadedOnceGuard } from '../shared/ensureModuleLoadedOnceGuard';
+import { ValidationService } from './services/validation.service'
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   imports: [ HttpModule, RouterModule, GrowlerModule, ModalModule ],
@@ -19,7 +21,8 @@ import { EnsureModuleLoadedOnceGuard } from '../shared/ensureModuleLoadedOnceGua
   providers: [
     //Default XSRF provider setup (change cookie or header name if needed): 
     //{ provide: XSRFStrategy, useValue: new CookieXSRFStrategy('XSRF-TOKEN', 'X-XSRF-TOKEN') },
-    DataService, DataFilterService, SorterService, TrackByService
+    DataService, DataFilterService, SorterService, TrackByService,
+    ValidationService, AuthService
   ] // these should be singleton
 
 })

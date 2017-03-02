@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { DataService } from '../core/services/data.service';
 import { ICustomer, IState } from '../shared/interfaces';
-import { ValidationService } from '../shared/validation.service';
+import { ValidationService } from '../core/services/validation.service';
 
 @Component({
   moduleId: module.id,

@@ -20,6 +20,10 @@ const routes: Routes = [
   {
        path: 'customers',
        loadChildren: 'app/customers/customers.module#CustomersModule'
+  },
+  {
+       path: 'auth',
+       loadChildren: 'app/auth/auth.module#AuthModule'
   }
 ];
 

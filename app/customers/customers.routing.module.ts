@@ -5,8 +5,8 @@ import { CustomersComponent }   from './customers.component';
 import { CustomersGridComponent } from './customers-grid.component';
 import { CustomerEditComponent } from './customer-edit.component';
 import { CustomerEditReactiveComponent } from './customer-edit-reactive.component';
+import { CanActivateGuard } from './can-activate.guard';
 import { CanDeactivateGuard } from './can-deactivate.guard';
-
 
 const routes: Routes = [
   { 
@@ -15,7 +15,9 @@ const routes: Routes = [
   },
   {
     path: ':id',
-    component: CustomerEditComponent
+    component: CustomerEditComponent,
+//    canActivate: [ CanActivateGuard ],
+    canDeactivate : [ CanDeactivateGuard ]
   }
 ];
 
@@ -23,7 +25,7 @@ const routes: Routes = [
 @NgModule({
   imports: [ RouterModule.forChild(routes) ],
   exports: [ RouterModule ],
-  providers:    [ CanDeactivateGuard ]
+  providers:    [ CanActivateGuard, CanDeactivateGuard ]
 })
 export class CustomersRoutingModule { 
   static components = [ CustomersComponent, CustomersGridComponent , CustomerEditComponent, CustomerEditReactiveComponent ];
