@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { CustomersComponent }   from './customers.component';
 import { CustomersGridComponent } from './customers-grid.component';
+import { CustomersCardComponent } from './customers-card.component';
 import { CustomerEditComponent } from './customer-edit.component';
 import { CustomerEditReactiveComponent } from './customer-edit-reactive.component';
 import { CanActivateGuard } from './can-activate.guard';
@@ -28,5 +29,6 @@ const routes: Routes = [
   providers:    [ CanActivateGuard, CanDeactivateGuard ]
 })
 export class CustomersRoutingModule { 
-  static components = [ CustomersComponent, CustomersGridComponent , CustomerEditComponent, CustomerEditReactiveComponent ];
+  static components = [ CustomersComponent, CustomersGridComponent, CustomersCardComponent, CustomerEditComponent, 
+     CustomerEditReactiveComponent ];
 }
