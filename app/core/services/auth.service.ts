@@ -6,12 +6,13 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 import { IUserLogin } from '../../shared/interfaces';
+import { SERVER_URL } from '../../shared/utils/sharedData';
 
 @Injectable()
 
 export class AuthService {
     
-    authUrl: string = '/api/auth';
+    authUrl: string = SERVER_URL["AuthServer"]  + '/api/auth';
     isAuthenticated: boolean = false;
     redirectUrl: string;
     @Output() authChanged: EventEmitter<boolean> = new EventEmitter<boolean>();

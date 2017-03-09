@@ -8,12 +8,13 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 import { ICustomer, IOrder, IState, IPagedResults } from '../../shared/interfaces';
+import { SERVER_URL } from '../../shared/utils/sharedData';
 
 @Injectable()
 export class DataService  {
     
-      serverUrl: string = 'http://localhost:5004';
-      baseUrl: string = 'http://localhost:5004/api/customers';
+      serverUrl: string = SERVER_URL["DataServer"];
+      baseUrl: string = SERVER_URL["DataServer"] + '/api/customers';
 
       constructor(private http: Http){
 
