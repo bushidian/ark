@@ -22,6 +22,10 @@ const routes: Routes = [
        loadChildren: 'app/customers/customers.module#CustomersModule'
   },
   {
+        path: 'chat',
+        loadChildren: 'app/chat/chat.module#ChatModule'
+  },
+  {
        path: 'auth',
        loadChildren: 'app/auth/auth.module#AuthModule'
   }
