@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 @Component({
   moduleId: module.id,
   selector: 'my-chat',
-  templateUrl: 'chat.component.html'
+  templateUrl: 'chat.component.html',
+  styleUrls: [ 'chat.component.css' ]
 })
 
 export class ChatComponent implements OnInit {

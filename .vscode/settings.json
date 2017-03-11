@@ -8,5 +8,5 @@
         "when": "$(basename).js.map"
       }
     },
-    "vsicons.presets.angular": true
+    "vsicons.presets.angular": false
 }
