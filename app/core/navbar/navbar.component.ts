@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
 import { Subscription } from 'rxjs/Subscription';
@@ -13,16 +14,16 @@ import { GrowlerService, GrowlerMessageType } from '../growler/growler.service';
 })
 
 export class NavbarComponent implements OnInit, OnDestroy {
-    
+
     isCollapsed: boolean;
     loginLogoutText: string = 'Login';
     sub: Subscription;
-     
-    constructor(private router: Router, private authservice: AuthService, private growler: GrowlerService){
+
+    constructor(private router: Router, private authservice: AuthService, private growler: GrowlerService) {
     }
-    
+
     ngOnInit() {
-          this.sub = this.authservice.authChanged
+        this.sub = this.authservice.authChanged
             .subscribe((loggedIn: boolean) => {
                 this.setLoginLogoutText();
             },

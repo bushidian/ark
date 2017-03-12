@@ -1,4 +1,5 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpModule, XSRFStrategy, CookieXSRFStrategy } from '@angular/http';
 
@@ -15,9 +16,9 @@ import { ValidationService } from './services/validation.service'
 import { AuthService } from './services/auth.service';
 
 @NgModule({
-  imports: [ HttpModule, RouterModule, GrowlerModule, ModalModule ],
-  exports: [ NavbarComponent, RouterModule, GrowlerModule, ModalModule ],
-  declarations: [ NavbarComponent ],
+  imports: [CommonModule, HttpModule, RouterModule, GrowlerModule, ModalModule],
+  exports: [NavbarComponent, RouterModule, GrowlerModule, ModalModule],
+  declarations: [NavbarComponent],
   providers: [
     //Default XSRF provider setup (change cookie or header name if needed): 
     //{ provide: XSRFStrategy, useValue: new CookieXSRFStrategy('XSRF-TOKEN', 'X-XSRF-TOKEN') },
@@ -32,6 +33,6 @@ export class CoreModule extends EnsureModuleLoadedOnceGuard {
   //Looks for the module in the parent injector to see if it's already been loaded (only want it loaded once)
   constructor( @Optional() @SkipSelf() parentModule: CoreModule) {
     super(parentModule);
-  }  
+  }
 
 }

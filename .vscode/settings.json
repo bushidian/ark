@@ -1,12 +1,12 @@
 {
-    "files.exclude": {
-      "**/app/**/*.js.map": true,
-      "**/app/**/*.js": true,
-      
-      "**/config/*.js.map": true,
-      "**/config/*.js": {
-        "when": "$(basename).js.map"
-      }
-    },
-    "vsicons.presets.angular": false
+  "files.exclude": {
+    "**/app/**/*.js.map": true,
+    "**/app/**/*.js": true,
+
+    "**/config/*.js.map": true,
+    "**/config/*.js": {
+      "when": "$(basename).js.map"
+    }
+  },
+  "vsicons.presets.angular": true
 }
