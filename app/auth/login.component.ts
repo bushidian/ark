@@ -11,25 +11,25 @@ import { GrowlerService, GrowlerMessageType } from '../core/growler/growler.serv
     moduleId: module.id,
     selector: 'my-login',
     templateUrl: 'login.component.html',
-    styleUrls: [ 'login.component.css' ]
+    styleUrls: ['login.component.css']
 })
 export class LoginComponent implements OnInit {
     loginForm: FormGroup;
     errorMessage: string;
 
-    constructor(private formBuilder: FormBuilder, 
-                private router: Router, 
-                private authService: AuthService,
-                private growler: GrowlerService) { }
+    constructor(private formBuilder: FormBuilder,
+        private router: Router,
+        private authService: AuthService,
+        private growler: GrowlerService) { }
 
-    ngOnInit() { 
+    ngOnInit() {
         this.buildForm();
     }
 
     buildForm() {
         this.loginForm = this.formBuilder.group({
-            email:      ['', [ Validators.required, ValidationService.emailValidator ]],
-            password:   ['', [ Validators.required, ValidationService.passwordValidator ]]
+            email: ['', [Validators.required, ValidationService.emailValidator]],
+            password: ['', [Validators.required, ValidationService.passwordValidator]]
         });
     }
 

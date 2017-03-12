@@ -40,6 +40,12 @@ export interface IPagedResults<T> {
 }
 
 export interface IUserLogin {
+    name: string;
     email: string;
     password: string;
+}
+
+export interface IUserInfo {
+    name: string,
+    email: string
 }
